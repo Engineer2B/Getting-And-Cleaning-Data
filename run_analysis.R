@@ -38,7 +38,10 @@ lsAx1strFeatures <- as.character(unlist(tabFeatures[,2]))
 # Substitute some characters with their more readable equivalent
 #Replace CamelCase with spaces as in
 #http://stackoverflow.com/a/22528880/1750173
-lsAx1strFeatures1 <- gsub("([a-z])([A-Z])", "\\1 \\L\\2", lsAx1strFeatures, perl = TRUE)
+lsAx1strFeatures1 <- gsub("([a-z])([A-Z])",
+                          "\\1 \\L\\2",
+                          lsAx1strFeatures,
+                          perl = TRUE)
 #sub("^(.[a-z])", "\\L\\1", lsAx1strFeatures1, perl = TRUE)
 ### Replacing words to make it more readable ###
 replaceByRules <- function(lsAx1strInput,lsAx2strRules){
