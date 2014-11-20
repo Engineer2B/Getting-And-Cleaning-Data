@@ -1,11 +1,14 @@
-strPathData <- "C:\\Programmeren\\Bronbestanden\\UCI HAR Dataset\\"
-strPathTest <- "test"
-strPathTrain <- "train"
-strNameFileOutStep5 <- "step5.txt"
-
+run_analysis <- function(strPathData = "C:\\Programmeren\\Bronbestanden\\UCI HAR Dataset\\",
+                         strPathTest = "test",
+                         strPathTrain = "train",
+                         strNameFileOutStep5 = "step5.txt"){
+# Save current working directory
+strDirectory<-getwd()
 ################################## Step 1 ##################################
 ## Merge the training and the test sets to create one data set.           ##
 #Read in the source files
+message("Step 1 of 5:")
+message("...merging the sets...")
 # Set working directory to the test data path
 setwd(paste(strPathData,strPathTest,sep=""))
 # Read the X, y and subject test data
@@ -29,6 +32,8 @@ dfXSYTrainTest<-rbind(dfXSYTrain,dfXSYTest)
 
 ################################## Step 2 ##################################
 ## Label the data set with descriptive variable names.                    ##
+message("Step 2 of 5:")
+message("...labeling the data set...")
 # Set working directory to the initial data source path
 setwd(strPathData)
 # Extract variable names from 'features.txt'
@@ -85,6 +90,8 @@ names(dfXSYTrainTest) <- lsAx1strFeaturesFinal
 
 ################################## Step 3 ##################################
 ## Uses descriptive activity names to name the activities in the data set ##
+message("Step 3 of 5:")
+message("...naming the activities...")
 setwd(strPathData)
 dfLabels <- read.table("activity_labels.txt",stringsAsFactors=FALSE)
 ls6strLabels <- tolower(as.character(unlist(dfLabels["V2"])))
@@ -101,17 +108,27 @@ lsAinExtractionIndices = grep("mean|deviation|subject|activity",names(dfXSYTrain
 # Use the list of indices to extract the relevant columns and the subject
 # and activity.
 dfXSYTrainTestSelection <- dfXSYTrainTest[,lsAinExtractionIndices]
+message("Step 4 of 5:")
+message("...selecting the data...")
 
 ################################## Step 5 ##################################
 ## From the data set in step 4, create a second, independent tidy data    ##
 ## set with the average of each variable for each activity                ##
 ## and each subject.                                                      ##
+message("Step 5 of 5:")
+message("...creating the tidy data...")
 library(plyr)
 # Run the functions length, mean, and sd on the value of "change" for each
 # group, broken down by sex + condition
 dfXSYTrainTestSummary <- ddply(dfXSYTrainTestSelection,
                                c("activity", "subject"),
                                colwise(mean))
+
 ##############################  Export result ##############################
+message("...exporting result...")
 strFileOutStep5 <- paste(strPathData,strNameFileOutStep5,sep="")
 write.table(dfXSYTrainTestSummary,file=strFileOutStep5,row.name=FALSE)
+message(paste("Great success!!\nFile written to:\n'",strFileOutStep5,"'.",sep=""))
+# Reset working directory
+setwd(strDirectory)
+}
