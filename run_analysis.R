@@ -61,8 +61,8 @@ replaceByRules <- function(lsAx1strInput,lsAx2strRules){
 }
 lsAx2strListOfRules<-list(
     list("acc","acceleration"),
-    list("t ","time duration for "),
-    list("f ","frequency domain signal for "),
+    list("t ","time "),
+    list("f ","frequency "),
     list("mag","magnitude"),
     list("iqr","interquartile range"),
     list("arCoeff","autorregresion coefficients"),
@@ -103,8 +103,8 @@ dfXSYTrainTest$activity<-factor(unlist(dfXSYTrainTest$activity),labels=ls6strLab
 ## Extract only those measurements on the mean and standard deviation     ##
 ## for each measurement.                                                  ##
 # List the indices of the labels of dfXSYTrainTest that have 'subject', 
-# 'activity', 'mean' or 'deviation' in them.
-lsAinExtractionIndices = grep("mean|deviation|subject|activity",names(dfXSYTrainTest))
+# 'activity', 'mean' or 'standard' in them.
+lsAinExtractionIndices = grep("mean|standard|subject|activity",names(dfXSYTrainTest))
 # Use the list of indices to extract the relevant columns and the subject
 # and activity.
 dfXSYTrainTestSelection <- dfXSYTrainTest[,lsAinExtractionIndices]
@@ -123,6 +123,11 @@ library(plyr)
 dfXSYTrainTestSummary <- ddply(dfXSYTrainTestSelection,
                                c("activity", "subject"),
                                colwise(mean))
+# Rename the columns to reflect that we have calculated the mean
+names(dfXSYTrainTestSummary)<-c("activity",
+                                "subject",
+                                unlist(lapply(names(dfXSYTrainTestSummary)[c(-1,-2)],
+                                              function(x) {paste("mean of ",x,sep="")})))
 
 ##############################  Export result ##############################
 message("...exporting result...")
