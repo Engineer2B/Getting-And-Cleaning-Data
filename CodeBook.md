@@ -17,6 +17,7 @@ The data were collected from [the URL]( https://d396qusza40orc.cloudfront.net/ge
 
 The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities:
 
+number|activity
  --- | ---
  1 | WALKING
  2 | WALKING_UPSTAIRS
