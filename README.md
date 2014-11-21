@@ -10,8 +10,8 @@ Follow the following steps to run the code:
 2. Start R or R studio.
 3. Set the directory where `run_analysis.R` is located as working directory with `setwd(directory of R file)`
 4. Type `source('run_analysis.R')` in R or R studio.
-5. Execute `run_analysis` with the first parameter set to the directory `strPathData` of step 1, that is execute `run_analysis(strPathData)`.
-6. A tidy data text file that meets the principles of Hadley Wickham's paper "Tidy data" is now in your data directory `strPathData`
+5. Execute `run_analysis` with the first parameter set to the directory `strPathData` of step 1, by executing `run_analysis(strPathData)`.
+6. Hurra, a tidy data text file that (hopefully) meets the principles of Hadley Wickham's paper "Tidy data" is now in your data directory `strPathData`.
 
 ### Test the output
 The tidy data file can be read back into R with the command `read.table(tidy file,header=TRUE)`.

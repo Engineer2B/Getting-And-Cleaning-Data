@@ -64,9 +64,11 @@ tBodyGyroJerkMean
 Activities are numbered from 1 to 6.
 
 ###### Generated variables
-The set of variables that were estimated from these signals are: 
+The set of variables that were estimated from a selection of the above signals are:
 
 The mean value and the standard deviation.
+
+The selection consisted of those variables that have "mean" or "standard deviation" or related terms in their variable name.
 
 ### The transformations
 The test and training data were row binded into 1 dataframe.
