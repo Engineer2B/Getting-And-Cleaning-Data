@@ -94,18 +94,25 @@ pattern | replaced by
 "\\(\\)"|""
 "\\-"|" plugged into "
 "\\("|" of "
-"\\|"|" and "
-"\\)"|""
+"\\,"|" and "
 "\\)"|""
 
 The end of the rules list frequently has an escape character "\" in it, making it seem a bit cryptic.
 
-Subsequently, for the big dataframe, activity number was converted to activity type (factor variable). 
+Subsequently, for the big dataframe, activity number was converted to activity type (factor variable).
 
+Now we have a dataframe that looks like this:
 
-The data
+![alt text][dataframe]
+[dataframe]: https://coursera-forum-screenshots.s3.amazonaws.com/ab/a2776024af11e4a69d5576f8bc8459/Slide2.png "from David's project FAQ"
 
+Next up, the variables that have "mean", "standard" (for standard deviation), "activity" or "subject" in them are selected from the dataframe.
 
-The transformations
+And finally the data is aggregated for subject and then activity and for each variable of a (subject,activity)-pair the mean is calculated with the function `ddply` of the `plyr` package.
 
+The end result looks like this:
 
+| subject | activity | name of variable 1 | name of variable 2 etc.
+|---------|:--------:|--------------- -:|--------------- -:|
+| 1       | WALKING  | 0.4 | 0.6
+| 1       | LAYING   | -.3 | 0.5

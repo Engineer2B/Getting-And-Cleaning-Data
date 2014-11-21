@@ -80,7 +80,6 @@ lsAx2strListOfRules<-list(
     list("\\-"," plugged into "),
     list("\\("," of "),
     list("\\,"," and "),
-    list("\\)",""),
     list("\\)",""))
 lsAx1strFeaturesChanged<-replaceByRules(lsAx1strFeatures1,lsAx2strListOfRules)
 # Add subject and activity to feature labels
