@@ -71,6 +71,12 @@ The mean value and the standard deviation.
 ### The transformations
 The test and training data were row binded into 1 dataframe.
 Then the activity and the participant data for test and train data were column binded to this frame.
+
+Now we have a dataframe that looks schematically like this:
+
+![alt text][dataframe]
+[dataframe]: https://coursera-forum-screenshots.s3.amazonaws.com/ab/a2776024af11e4a69d5576f8bc8459/Slide2.png "from David's project FAQ"
+
 For this data frame the headers were renamed using the following table of rules in sequence:
 
 pattern | replaced by
@@ -99,12 +105,7 @@ pattern | replaced by
 
 The end of the rules list frequently has an escape character "\" in it, making it seem a bit cryptic.
 
-Subsequently, for the big dataframe, activity number was converted to activity type (factor variable).
-
-Now we have a dataframe that looks like this:
-
-![alt text][dataframe]
-[dataframe]: https://coursera-forum-screenshots.s3.amazonaws.com/ab/a2776024af11e4a69d5576f8bc8459/Slide2.png "from David's project FAQ"
+Subsequently, for the big dataframe, activity number was converted to activity type (it was turned into a factor variable).
 
 Next up, the variables that have "mean", "standard" (for standard deviation), "activity" or "subject" in them are selected from the dataframe.
 

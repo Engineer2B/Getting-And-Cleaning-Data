@@ -3,7 +3,7 @@ Getting-And-Cleaning-Data
 
 Repository for Course Project for Getting and Cleaning Data on Coursera
 
-### Use of this repository
+### Use of the code in this repository
 Follow the following steps to run the code:
 
 1. Download the data from [this URL]( https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) and extract it in directory `strPathData`.
