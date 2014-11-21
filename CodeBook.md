@@ -115,7 +115,7 @@ And finally the data is aggregated for subject and then activity and for each va
 
 The end result looks like this:
 
-| subject | activity | name of variable 1 | name of variable 2 etc.
-|---------|:--------:|--------------- -:|--------------- -:|
-| 1       | WALKING  | 0.4 | 0.6
-| 1       | LAYING   | -.3 | 0.5
+ subject|activity|name of variable 1|name of variable 2 etc.
+---|:---:|---:|---:
+ 1|WALKING|0.4|0.6
+ 1|LAYING|-.3|0.5
