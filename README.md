@@ -15,8 +15,9 @@ Follow the following steps to run the code:
 
 `run_analysis` has 4 optional parameters which you can set.
 They refer to the following values:
-parameter name | reference
----|---
+
+parameter name|reference
+ --- | ---
 strPathData | path to the data directory
 strPathTest | path to the test folder from the test directory
 strPathTrain | path to the test folder from the train directory
